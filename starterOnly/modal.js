@@ -19,7 +19,7 @@ const nom = document.getElementById("last");
 const mail = document.getElementById("email");
 const naissance = document.getElementById("birthdate");
 const quantite = document.getElementById("quantity");
-// const tournois = document.querySelectorAll(".checkbox-input[type=radio]");
+const tournois = document.querySelectorAll(".checkbox-input[type=radio]");
 const cgu = document.getElementById("checkbox1");
 
 // const checkbox1 = document.getElementById("checkbox1");
@@ -82,20 +82,13 @@ function isQuantiteValid() {
 	return regex.test(quantite.value);
   }
 
-// function isTournoisValid() {
-//   for (let eltTournois of tournois) {
-//     if (eltTournois.checked) {
-//       return true;
-//     }
-// }
-
-// function isTournoisValid() {
-// 	for (let radio of tournois) {
-// 		if (radio.checked) 
-//   }
-//   return false;
-// }
-
+function isTournoisValid() {
+  for (let eltTournois of tournois) {
+    if (eltTournois.checked === true) {
+      return true;
+    }
+  }
+}
 
 function isCguValid() {
 	return cgu.checked;
@@ -135,13 +128,12 @@ function validateForm() {
     validInput(quantite);
   }
 
-  // if (!isTournoisValid()) {
-  //   isValid = false;
-	// 	unvalidInput(tournois, error.tournois);
-  //   console.warn("etape1")
-	// } else {
-  //   validInput(tournois);
-  // }
+  if (!isTournoisValid()) {
+    isValid = false;
+		unvalidInput(tournois[0], error.tournois);
+	} else {
+    validInput(tournois[0]);
+  }
 
   if (!isCguValid()) {
     isValid = false;
