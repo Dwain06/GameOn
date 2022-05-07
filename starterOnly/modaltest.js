@@ -27,7 +27,6 @@ let error = {
   prenom: 'Veuillez saisir votre prénom avec au moins 2 caractères',
   nom: 'Veuillez saisir votre nom avec au moins 2 caractères',
   mail: 'Veuillez saisir un email valide',
-  naissance : 'Veuillez saisir une date valide',
   quantite: 'Veuillez indiquer un nombre',
   tournois: 'Veuillez cocher une case',
   cgu: 'Merci d\'accepter les conditions générales'
@@ -63,8 +62,8 @@ function validInput(element) {
 
 // Conditions données valides
 function isPrenomValid() {
-    return prenom.value !== null && prenom.value.length >= 2;
-}
+  return prenom.value !== null && prenom.value.length >= 2;
+};
 
 function isNomValid() {
     return nom.value !== null && nom.value.length >= 2;
@@ -73,11 +72,6 @@ function isNomValid() {
 function isMailValid() {
   let regex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 	return regex.test(mail.value);
-};
-
-function isNaissanceValid() {
-  let regex = /^([0-3][0-9])\/([0-1][0-9])\/([1-2]([0-9]{3}))$/;
-	return regex.test(naissance.value);
 };
 
 function isQuantiteValid() {
@@ -97,62 +91,60 @@ function isCguValid() {
 	return cgu.checked;
 };
 
-function validatePrenom () {
-  if (!isPrenomValid()) {
-    isValid = false;
-		unvalidInput(prenom, error.prenom);
+
+
+function validate(elt, cond, err) {
+  if (cond) {
+		validInput(elt);
+    isValid = true;
 	} else {
-    validInput(prenom);
-  }
+    unvalidInput(elt, err);
+    
+  }    
 };
+
 
 // Validation du formulaire
 function validateForm() {
-  let isValid = true;
+let isValid = false;
+validate(prenom, isPrenomValid(), error.prenom);
 
-	validatePrenom();
+return isValid;
 
-  if (!isNomValid()) {
-    isValid = false;
-		unvalidInput(nom, error.nom);
-	} else {
-    validInput(nom);
-  }
+  // if (!isNomValid()) {
+  //   isValid = false;
+	// 	unvalidInput(nom, error.nom);
+	// } else {
+  //   validInput(nom);
+  // }
 
-  if (!isMailValid()) {
-    isValid = false;
-		unvalidInput(mail, error.mail);
-	} else {
-    validInput(mail);
-  }
+  // if (!isMailValid()) {
+  //   isValid = false;
+	// 	unvalidInput(mail, error.mail);
+	// } else {
+  //   validInput(mail);
+  // }
 
-  if (!isNaissanceValid()) {
-    isValid = false;
-		unvalidInput(naissance, error.naissance);
-	} else {
-    validInput(naissance);
-  }
+  // if (!isQuantiteValid()) {
+  //   isValid = false;
+	// 	unvalidInput(quantite, error.quantite);
+	// } else {
+  //   validInput(quantite);
+  // }
 
-  if (!isQuantiteValid()) {
-    isValid = false;
-		unvalidInput(quantite, error.quantite);
-	} else {
-    validInput(quantite);
-  }
+  // if (!isTournoisValid()) {
+  //   isValid = false;
+	// 	unvalidInput(tournois[0], error.tournois);
+	// } else {
+  //   validInput(tournois[0]);
+  // }
 
-  if (!isTournoisValid()) {
-    isValid = false;
-		unvalidInput(tournois[0], error.tournois);
-	} else {
-    validInput(tournois[0]);
-  }
+  // if (!isCguValid()) {
+  //   isValid = false;
+	// 	unvalidInput(cgu, error.cgu);
+	// } else {
+  //   validInput(cgu);
+  // }
 
-  if (!isCguValid()) {
-    isValid = false;
-		unvalidInput(cgu, error.cgu);
-	} else {
-    validInput(cgu);
-  }
-
-  return isValid;
+  // return isValid;
 };
