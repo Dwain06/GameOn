@@ -49,13 +49,12 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Erreurs sur éléments parents
+// Ajout ou suppression message d'erreur selon les données du champ formulaire
 function unvalidInput(element, message) {
 	element.parentNode.setAttribute("data-error-visible", true);
 	element.parentNode.setAttribute("data-error", message);
 }
 
-// Suppression erreurs
 function validInput(element) {
 	element.parentNode.removeAttribute("data-error-visible");
 	element.parentNode.removeAttribute("data-error");
@@ -76,7 +75,7 @@ function isMailValid() {
 };
 
 function isNaissanceValid() {
-  let regex = /^([0-3][0-9])\/([0-1][0-9])\/([1-2]([0-9]{3}))$/;
+  let regex = /^([1-2]([0-9]{3})\-[0-1][0-9])\-([0-3][0-9])$/;
 	return regex.test(naissance.value);
 };
 
@@ -97,62 +96,52 @@ function isCguValid() {
 	return cgu.checked;
 };
 
-function validatePrenom () {
-  if (!isPrenomValid()) {
-    isValid = false;
-		unvalidInput(prenom, error.prenom);
-	} else {
-    validInput(prenom);
-  }
-};
-
 // Validation du formulaire
 function validateForm() {
-  let isValid = true;
 
-	validatePrenom();
-
-  if (!isNomValid()) {
-    isValid = false;
-		unvalidInput(nom, error.nom);
+  if (isPrenomValid()) {
+		validInput(prenom);
 	} else {
-    validInput(nom);
+    unvalidInput(prenom, error.prenom);
   }
 
-  if (!isMailValid()) {
-    isValid = false;
-		unvalidInput(mail, error.mail);
+  if (isNomValid()) {
+		validInput(nom);
 	} else {
-    validInput(mail);
+    unvalidInput(nom, error.nom);
   }
 
-  if (!isNaissanceValid()) {
-    isValid = false;
-		unvalidInput(naissance, error.naissance);
+  if (isMailValid()) {
+		validInput(mail);
 	} else {
-    validInput(naissance);
+    unvalidInput(mail, error.mail);
   }
 
-  if (!isQuantiteValid()) {
-    isValid = false;
-		unvalidInput(quantite, error.quantite);
+  if (isNaissanceValid()) {
+		validInput(naissance);
 	} else {
-    validInput(quantite);
+    unvalidInput(naissance, error.naissance);
   }
 
-  if (!isTournoisValid()) {
-    isValid = false;
-		unvalidInput(tournois[0], error.tournois);
+  if (isQuantiteValid()) {
+		validInput(quantite);
 	} else {
-    validInput(tournois[0]);
+    unvalidInput(quantite, error.quantite);
   }
 
-  if (!isCguValid()) {
-    isValid = false;
-		unvalidInput(cgu, error.cgu);
+  if (isTournoisValid()) {
+		validInput(tournois[0]);
 	} else {
-    validInput(cgu);
+    unvalidInput(tournois[0], error.tournois);
   }
 
-  return isValid;
+  if (isCguValid()) {
+		validInput(cgu);
+	} else {
+    unvalidInput(cgu, error.cgu);
+  }
+
+  // Si toutes les conditions sont remplies, on autorise l'envoi du formulaire
+  return (isPrenomValid() && isNomValid() && isMailValid() && isNaissanceValid() && isQuantiteValid() && isTournoisValid() && isCguValid());
+  
 };
