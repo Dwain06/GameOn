@@ -58,8 +58,8 @@
           <span class="close"></span>
           <div class="modal-body">
 
-            <!-- Formulaire -->
-            <form name="reserve" id="form" action="index.html" method="get" onsubmit="return validateForm();">
+            <!-- Formulaire onsubmit="return validateForm();"-->
+            <form name="reserve" id="form" action="index.html" method="get" >
               
               <div class="formData">
                 <label for="first">Prénom</label>
@@ -153,7 +153,8 @@
         <div class="content">
           <span class="close-confirm"></span>
           <div class="modal-body">
-            <div id="modal--confirm">Merci ! Votre réservation a été reçue.</div>
+            <div class="modal-confirm">Merci ! Votre réservation a été reçue.</div>
+            <input class="btn-submit button" type="button" value="Fermer"/>
           </div>
         </div>
       </div>

@@ -14,7 +14,9 @@ const formData = document.querySelectorAll(".formData");
 const form = document.querySelector("form");
 const modalClose = document.querySelector(".close");
 const confirmClose = document.querySelector(".close-confirm");
+const confirmCloseBtn = document.querySelector(".bground-confirm input");
 const confirmForm = document.querySelector(".bground-confirm");
+const btnSubmit = document.querySelector(".btn-submit");
 
 // Form Elements
 const prenom = document.getElementById("first");
@@ -53,6 +55,9 @@ function closeModal() {
 
 // close confirm form
 confirmClose.addEventListener('click', function closeConfirmModal(){
+  confirmForm.style.display = "none";
+});
+confirmCloseBtn.addEventListener('click', function closeConfirmModal(){
   confirmForm.style.display = "none";
 });
 
@@ -121,7 +126,9 @@ function confirmMessage() {
 };
 
 // Validation du formulaire
-function validateForm() {
+function validateForm(event) {
+
+  event.preventDefault();
 
   if (isPrenomValid()) {
 		validInput(prenom);
@@ -166,6 +173,11 @@ function validateForm() {
   }
 
   // Si toutes les conditions sont remplies, on autorise l'envoi du formulaire
-  return (isPrenomValid() && isNomValid() && isMailValid() && isNaissanceValid() && isQuantiteValid() && isTournoisValid() && isCguValid());
-  
+  if (isPrenomValid() && isNomValid() && isMailValid() && isNaissanceValid() && isQuantiteValid() && isTournoisValid() && isCguValid()){
+    closeModal();
+    confirmMessage();
+  }
 };
+
+btnSubmit.addEventListener("click", validateForm);
+

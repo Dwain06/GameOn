@@ -181,6 +181,11 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+.modal-confirm {
+  padding-top: 20rem;
+  margin-bottom: 20rem;
+}
+
 .content {
   margin: 5% auto;
   width: 100%;
