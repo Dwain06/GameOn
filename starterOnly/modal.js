@@ -60,7 +60,7 @@ function validInput(element) {
 	element.parentNode.removeAttribute("data-error");
 }
 
-// Conditions données valides
+// Conditions pour valider les données
 function isPrenomValid() {
     return prenom.value !== null && prenom.value.length >= 2;
 }
@@ -98,6 +98,7 @@ function isCguValid() {
 
 // Validation du formulaire
 function validateForm() {
+  
 
   if (isPrenomValid()) {
 		validInput(prenom);
