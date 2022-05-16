@@ -24,13 +24,13 @@ const cgu = document.getElementById("checkbox1");
 
 // Messages d'erreur
 let error = {
-  prenom: 'Veuillez saisir votre prénom avec au moins 2 caractères',
-  nom: 'Veuillez saisir votre nom avec au moins 2 caractères',
+  prenom: 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.',
+  nom: 'Veuillez entrer 2 caractères ou plus pour le champ du nom.',
   mail: 'Veuillez saisir un email valide',
-  naissance : 'Veuillez saisir une date valide',
-  quantite: 'Veuillez indiquer un nombre',
-  tournois: 'Veuillez cocher une case',
-  cgu: 'Merci d\'accepter les conditions générales'
+  naissance : 'Vous devez entrer votre date de naissance.',
+  quantite: 'Veuillez indiquer un nombre.',
+  tournois: 'Vous devez choisir une option.',
+  cgu: 'Vous devez vérifier que vous acceptez les termes et conditions.'
 }
 
 // launch modal event
