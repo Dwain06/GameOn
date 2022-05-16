@@ -11,7 +11,10 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const form = document.querySelector("form");
 const modalClose = document.querySelector(".close");
+const confirmClose = document.querySelector(".close-confirm");
+const confirmForm = document.querySelector(".bground-confirm");
 
 // Form Elements
 const prenom = document.getElementById("first");
@@ -41,13 +44,30 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal event
+// close modal form
 modalClose.addEventListener("click", closeModal);
 
-// close modal form
 function closeModal() {
   modalbg.style.display = "none";
 }
+
+// close confirm form
+confirmClose.addEventListener('click', function closeConfirmModal(){
+  confirmForm.style.display = "none";
+});
+
+// form.addEventListener('submit', function confirmModal(){
+//   console.log('est ok');
+//   confirmForm.style.display = "block";
+// });
+
+// document.querySelector('.btn-submit').addEventListener('click', function(event){
+//   if (isPrenomValid() && isNomValid() && isMailValid() && isNaissanceValid() && isQuantiteValid() && isTournoisValid() && isCguValid()){
+//     return true;
+//   } else {
+//     event.preventDefault();
+//   }
+// })
 
 // Ajout ou suppression message d'erreur selon les données du champ formulaire
 function unvalidInput(element, message) {
@@ -96,9 +116,12 @@ function isCguValid() {
 	return cgu.checked;
 };
 
+function confirmMessage() {
+  confirmForm.style.display = "block";
+};
+
 // Validation du formulaire
 function validateForm() {
-  
 
   if (isPrenomValid()) {
 		validInput(prenom);

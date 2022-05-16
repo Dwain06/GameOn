@@ -169,6 +169,18 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+.bground-confirm {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
 .content {
   margin: 5% auto;
   width: 100%;
@@ -300,7 +312,7 @@ input {
   left: 21%;
   top: 19%;
 }
-.close {
+.close, .close-confirm {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -310,6 +322,8 @@ input {
   cursor: pointer;
   transform: scale(0.7);
 }
+.close-confirm:before,
+.close-confirm:after,
 .close:before,
 .close:after {
   position: absolute;
@@ -319,9 +333,11 @@ input {
   width: 3px;
   background-color: #fff;
 }
+.close-confirm:before,
 .close:before {
   transform: rotate(45deg);
 }
+.close-confirm:after,
 .close:after {
   transform: rotate(-45deg);
 }
