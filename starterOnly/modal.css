@@ -1,3 +1,4 @@
+/* Primary elements */
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
@@ -8,13 +9,11 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
 
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -30,12 +29,15 @@ img {
   padding-right: 1rem;
 }
 
+
+/* Navigation menu */
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  margin: 20px 20px 60px 20px;
 }
 .header-logo {
     float: left;
+    margin-left: 20px;
 }
 .main-navbar {
     float: right;
@@ -50,12 +52,14 @@ img {
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
+  border-radius: 15px;
+  transition: background-color .2s;
 }
 
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
-  border-radius: 15px;
+  transition: all .2s;
 }
 
 .topnav a.active {
@@ -69,38 +73,52 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
+
   .topnav a.icon {
     float: right;
     display: block;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
   }
+
+  .header-logo {
+    margin-left: 10px;
+  }
+
+  .header-logo img {
+    padding-top: 15px;
+    width: 150px;
+  }
 }
 
-
-
  @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
+
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
+/* Main page */
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -111,8 +129,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -138,7 +154,6 @@ main {
 }
 
 /* Modal form */
-
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -157,7 +172,7 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground, .bground-confirm {
   display: none;
   position: fixed;
   z-index: 1;
@@ -166,22 +181,15 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: white;
 }
 
-.bground-confirm {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
-}
+
 
 .modal-confirm {
+  text-align: center;
+  font-size: 30px;
+  font-weight: normal;
   padding-top: 20rem;
   margin-bottom: 20rem;
 }
@@ -247,12 +255,7 @@ input {
   border: 2px solid #e54858;
 }
 
-/* input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
-
+/* Checkbox design */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -317,6 +320,8 @@ input {
   left: 21%;
   top: 19%;
 }
+
+/* Close modal button */
 .close, .close-confirm {
   position: absolute;
   right: 15px;
@@ -358,6 +363,7 @@ input {
   cursor: pointer;
   border: 0;
 }
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -424,10 +430,10 @@ input {
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* custom select end */
 
+/* custom select end */
 .hero-section {
-  min-height: 93vh;
+  min-height: 70vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -470,7 +476,6 @@ input {
 }
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
@@ -482,6 +487,7 @@ input {
 .hero-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   display: block;
   padding: 0;
 }
@@ -504,11 +510,12 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 50vh;
   }
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0px;
   }
   .hero-content::after {
     content: unset;
@@ -517,12 +524,12 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
-    white-space: normal;
+    font-size: 2rem;
+    font-weight: bold;
   }
   .hero-text {
-    width: unset;
-    font-size: 1.5rem;
+    width: 75%;
+    font-size: 1rem;
   }
   .hero-img img {
     border-radius: 10px;
@@ -536,6 +543,9 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+  .bground {
+    margin-top: 90px;
   }
 }
 
