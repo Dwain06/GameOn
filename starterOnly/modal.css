@@ -141,10 +141,12 @@ main {
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
   cursor: pointer;
+  transition: .4s;
 }
 
 .modal-btn:hover {
   background: #3876ac;
+  transition: .2s;
 }
 
 .footer {
@@ -546,6 +548,7 @@ footer {
   }
   .bground {
     margin-top: 90px;
+    transition: transform 1s;
   }
 }
 

@@ -2,8 +2,10 @@ function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
+    document.querySelector(".bground").style.transform = "translateY(250px)";
   } else {
     x.className = "topnav";
+    document.querySelector(".bground").style.transform = "translateY(20px)";
   }
 }
 
