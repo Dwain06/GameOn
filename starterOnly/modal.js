@@ -1,3 +1,4 @@
+// Menu burger mobile
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -62,19 +63,6 @@ confirmClose.addEventListener('click', function closeConfirmModal(){
 confirmCloseBtn.addEventListener('click', function closeConfirmModal(){
   confirmForm.style.display = "none";
 });
-
-// form.addEventListener('submit', function confirmModal(){
-//   console.log('est ok');
-//   confirmForm.style.display = "block";
-// });
-
-// document.querySelector('.btn-submit').addEventListener('click', function(event){
-//   if (isPrenomValid() && isNomValid() && isMailValid() && isNaissanceValid() && isQuantiteValid() && isTournoisValid() && isCguValid()){
-//     return true;
-//   } else {
-//     event.preventDefault();
-//   }
-// })
 
 // Ajout ou suppression message d'erreur selon les données du champ formulaire
 function unvalidInput(element, message) {
