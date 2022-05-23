@@ -77,11 +77,13 @@ function validInput(element) {
 
 // Conditions pour valider les données
 function isPrenomValid() {
-    return prenom.value !== null && prenom.value.length >= 2;
-}
+  let regex = /^([a-zA-Z\-]+)$/;
+  return prenom.value !== null && prenom.value.length >= 2 && prenom.value.trim() !=="" && regex.test(prenom.value) == true;    
+};
 
 function isNomValid() {
-    return nom.value !== null && nom.value.length >= 2;
+  let regex = /^([a-zA-Z\-]+)$/;
+  return nom.value !== null && nom.value.length >= 2 && nom.value.trim() !=="" && regex.test(nom.value) == true;
 };
 
 function isMailValid() {
